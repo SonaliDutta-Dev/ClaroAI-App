@@ -1,3 +1,4 @@
+
 # 🚀 **ClaroAI — Unified AI Productivity & Automation Platform**
 
 *A cloud-native AI SaaS platform built for students, creators, and professionals to work smarter — not harder.*
@@ -229,3 +230,4 @@ AI & Web Developer | BCA 2026
 Passionate about full-stack engineering, cloud workflows, and AI-driven user experiences.
 
 
+=======

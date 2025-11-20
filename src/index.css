@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
+* {
+  font-family: "Outfit", sans-serif;
+}
+@theme {
+  --color-primary: #5044e5;
+}
+::-webkit-scrollbar {
+  direction: rtl;
+}
+.reset-tw,
+.reset-tw * {
+  all: revert !important;
+}
+
+.cl-drawerRoot {
+  z-index: 10;
+}
+
+
+/* BASE  */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: "Outfit", sans-serif;
+  background: #e8ecff;
+  color: #1A1A1A;
+  overflow-x: hidden;
+}
+
+/* SMOOTH */
+* {
+  transition: 0.2s ease;
+}
+
+/* BLUE–PURPLE AURA BACKGROUND */
+body {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(129, 173, 255, 0.65), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(186, 127, 255, 0.55), transparent 70%),
+    radial-gradient(circle at 40% 85%, rgba(127, 235, 255, 0.45), transparent 70%),
+    #e8ecff;
+  background-attachment: fixed;
+}
+
+/* THE GLASS CARD LIKE YOUR IMAGE */
+.glass-aura {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-radius: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 0 25px rgba(150, 115, 255, 0.25),
+    0 0 40px rgba(100, 175, 255, 0.25),
+    0 0 55px rgba(127, 255, 240, 0.25);
+}
+
+/* AURA GLOW BORDER EFFECT */
+.aura-border {
+  border: 2px solid transparent;
+  border-radius: 24px;
+  background: 
+    linear-gradient(#ffffffbb, #ffffffbb) padding-box,
+    linear-gradient(135deg, #8ab6ff, #d9a0ff, #91f1ff) border-box;
+}
+
+/* Clerk Fix — stops Tailwind + blur from affecting it */
+.clerk-container {
+  background: white !important;
+  backdrop-filter: none !important;
+}
+
+.clerk-card {
+  background: white !important;
+  border-radius: 16px !important;
+  color: black !important;
+}
+
+.clerk-btn {
+  background: #7c3aed !important;
+  color: white !important;
+}
+
+.clerk-footer {
+  background: white !important;
+}
+
+/* Fix Clerk Avatar White Box Issue */
+.cl-userButtonAvatarBox,
+.cl-avatarBox {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+  box-shadow: none !important;
+}
+
+/* Remove unwanted background around trigger */
+.cl-userButtonTrigger {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Remove extra padding/margins Clerk adds */
+.cl-userButtonTrigger,
+.cl-userButtonRoot {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+}
