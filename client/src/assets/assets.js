@@ -113,6 +113,14 @@ export const AiToolsData = [
   bg: { from: '#EC4899', to: '#A855F7' },
   path: '/ai/image-caption',
 },
+{
+  title: 'Exam Question Generator',
+  description: 'Enter a topic or unit name and generate Long, Short & MCQ questions instantly for exam preparation.',
+  Icon: SquarePen,
+  bg: { from: '#16A34A', to: '#22C55E' },
+  path: '/ai/exam-generator',
+},
+
 
 ]
 
