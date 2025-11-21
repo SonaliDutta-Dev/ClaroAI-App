@@ -67,37 +67,45 @@ body {
     linear-gradient(135deg, #8ab6ff, #d9a0ff, #91f1ff) border-box;
 }
 
-/* CLERK BLEND — SUPER IMPORTANT */
-.cl-card,
-.cl-formButtonPrimary,
-.cl-formFieldInput,
+/* Clerk Fix — stops Tailwind + blur from affecting it */
+.clerk-container {
+  background: white !important;
+  backdrop-filter: none !important;
+}
+
+.clerk-card {
+  background: white !important;
+  border-radius: 16px !important;
+  color: black !important;
+}
+
+.clerk-btn {
+  background: #7c3aed !important;
+  color: white !important;
+}
+
+.clerk-footer {
+  background: white !important;
+}
+
+/* Fix Clerk Avatar White Box Issue */
+.cl-userButtonAvatarBox,
 .cl-avatarBox {
-  border-radius: 22px !important;
-  box-shadow: 0 10px 25px rgba(140, 140, 255, 0.1) !important;
-  background: rgba(255,255,255,0.75) !important;
-  backdrop-filter: blur(22px) !important;
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+  box-shadow: none !important;
 }
 
-
-
-/* BUTTONS — AURA STYLE */
-.btn-aura {
-  background: linear-gradient(135deg, #8ab6ff, #d69aff);
-  padding: 0.75rem 1.6rem;
-  border-radius: 14px;
-  color: #fff;
-  font-weight: 500;
-  box-shadow: 0 8px 24px rgba(150, 120, 255, 0.35);
+/* Remove unwanted background around trigger */
+.cl-userButtonTrigger {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-.btn-aura:hover {
-  transform: scale(1.05);
-}
-
-.btn-light {
-  background: #ffffffaa;
-  border: 1px solid rgba(200, 200, 255, 0.7);
-  border-radius: 14px;
-  padding: 0.75rem 1.6rem;
-  color: #333;
+/* Remove extra padding/margins Clerk adds */
+.cl-userButtonTrigger,
+.cl-userButtonRoot {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
 }
