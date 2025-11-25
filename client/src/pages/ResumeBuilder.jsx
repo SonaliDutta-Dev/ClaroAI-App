@@ -120,7 +120,15 @@ const handleDownloadPdf = () => {
 
   // ----------------------- UI -----------------------
   return (
-    <div className="h-full p-4 sm:p-6 flex flex-col lg:flex-row gap-6 text-slate-800 overflow-hidden">
+  <div className="
+  min-h-screen 
+  p-4 sm:p-6 
+  flex flex-col 
+  lg:flex-row 
+  gap-6 
+  text-slate-800
+">
+
 
       {/* LEFT PANEL (FORM) */}
       <form
@@ -205,7 +213,19 @@ const handleDownloadPdf = () => {
       </form>
 
       {/* RIGHT PANEL — PREVIEW */}
-      <div className="flex-1 p-4 sm:p-5 bg-white/90 rounded-2xl border border-gray-200 shadow-md flex flex-col gap-4 overflow-hidden">
+      <div className="
+  w-full 
+  lg:flex-1
+  p-4 sm:p-5 
+  bg-white/90 
+  rounded-2xl 
+  border border-gray-200 
+  shadow-md 
+  flex flex-col 
+  gap-4 
+  overflow-visible 
+">
+
         {/* Top Bar */}
         <div className="flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2">
@@ -252,7 +272,17 @@ const handleDownloadPdf = () => {
         </div>
 
         {/* PREVIEW CONTENT */}
-        <div className="flex-1 border border-slate-100 rounded-xl bg-slate-50/70 p-3 sm:p-4 overflow-auto">
+       <div className="
+  flex-1 
+  border border-slate-100 
+  rounded-xl 
+  bg-slate-50/70 
+  p-3 sm:p-4 
+  overflow-y-auto 
+  overflow-x-hidden 
+  max-h-[80vh]
+">
+
           {!markdown ? (
             <div className="h-full flex flex-col items-center justify-center text-slate-400 text-sm">
               <FileText className="w-8 h-8 mb-3" />
