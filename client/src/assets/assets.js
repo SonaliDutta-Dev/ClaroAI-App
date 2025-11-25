@@ -9,6 +9,7 @@ import { SquarePen, Hash, Image as ImageIcon, Eraser, Scissors, FileText, Youtub
 import ai_gen_img_1 from "./ai_gen_img_1.png";
 import ai_gen_img_2 from "./ai_gen_img_2.png";
 import ai_gen_img_3 from "./ai_gen_img_3.png";
+import { MessageSquare } from 'lucide-react';
 
 export const assets = {
     logo,
@@ -120,7 +121,28 @@ export const AiToolsData = [
   bg: { from: '#16A34A', to: '#22C55E' },
   path: '/ai/exam-generator',
 },
+{
+  title: 'Interview QnA Simulator',
+  description: 'Practice mock interview questions and get AI-powered answers, tips and feedback.',
+  Icon: MessageSquare,   // you can use Bot, Mic, Brain, etc.
+  bg: { from: '#F97316', to: '#EA580C' },   // orange gradient (looks 🔥)
+  path: '/ai/interview-simulator',
+},
+{
+  title: 'AI PPT Generator',
+  description: 'Give a topic and get a full slide deck with titles and bullet points ready to paste into PowerPoint.',
+  Icon: FileText,
+  bg: { from: '#2563EB', to: '#4F46E5' },
+  path: '/ai/ppt-generator',
+},
 
+{
+  title: 'AI Resume Builder',
+  description: 'Generate ATS-friendly resumes with AI: summary, skills, experience & projects auto-written.',
+  Icon: FileText,
+  bg: { from: '#2563EB', to: '#4F46E5' },
+  path: '/ai/resume-builder',
+},
 
 ]
 
