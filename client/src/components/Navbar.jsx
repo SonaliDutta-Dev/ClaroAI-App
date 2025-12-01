@@ -16,24 +16,30 @@ const Navbar = () => {
     <div
       className={`
         fixed top-0 z-50 w-full h-20
-        flex justify-between items-center
+        flex items-center
         px-4 sm:px-8 xl:px-32
         backdrop-blur-xl transition-all duration-300
-        ${isDashboard 
-          ? "bg-white/80 border-b border-gray-200 shadow-sm"
-          : "bg-white/30 border-b border-white/40"
+        justify-between
+        ${
+          isDashboard
+            ? "bg-white/80 border-b border-gray-200 shadow-sm"
+            : "bg-white/30 border-b border-white/40"
         }
       `}
     >
       {/* Logo */}
-  <img
-  src={assets.logo}
-  alt="Logo"
-  className="h-[180px] sm:h-[180px] lg:h-[200px] cursor-pointer"
-  onClick={() => navigate("/")}
-/>
+      <img
+        src={assets.logo}
+        alt="Logo"
+        className="
+          h-[180px] sm:h-[180px] lg:h-[200px] cursor-pointer
 
-
+          /* mobile overflow fix */
+          max-sm:max-w-[120px] 
+          max-sm:object-contain
+        "
+        onClick={() => navigate("/")}
+      />
 
       {/* Right Auth Button */}
       {user ? (
