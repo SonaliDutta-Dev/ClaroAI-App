@@ -42,6 +42,7 @@ const QrGenerator = () => {
 
   const downloadFile = () => {
     if (!result) return;
+
     if (result.format === "png") {
       const a = document.createElement("a");
       a.href = result.dataUrl;
@@ -59,9 +60,13 @@ const QrGenerator = () => {
   };
 
   return (
-    <div className="h-full overflow-y-scroll p-6 flex gap-6 text-slate-700">
+    <div className="h-full overflow-y-scroll p-6 flex flex-col lg:flex-row gap-6 text-slate-700">
+
       {/* Left form */}
-      <form onSubmit={onGenerate} className="w-full max-w-lg p-4 bg-white rounded-lg border border-gray-200 flex-shrink-0">
+      <form 
+        onSubmit={onGenerate}
+        className="lg:w-1/2 w-full p-4 bg-white rounded-lg border border-gray-200"
+      >
         <div className="flex items-center gap-3">
           <Sparkles className="w-6 text-[#7C3AED]" />
           <h1 className="text-xl font-semibold">QR Code Generator</h1>
@@ -80,24 +85,51 @@ const QrGenerator = () => {
         <div className="grid grid-cols-2 gap-3 mt-4">
           <div>
             <p className="text-sm mb-1">Size: {size}px</p>
-            <input type="range" min={128} max={1024} step={32} value={size} onChange={(e) => setSize(+e.target.value)} className="w-full"/>
+            <input
+              type="range"
+              min={128}
+              max={1024}
+              step={32}
+              value={size}
+              onChange={(e) => setSize(+e.target.value)}
+              className="w-full"
+            />
           </div>
+
           <div>
             <p className="text-sm mb-1">Margin: {margin}</p>
-            <input type="range" min={0} max={10} step={1} value={margin} onChange={(e) => setMargin(+e.target.value)} className="w-full"/>
+            <input
+              type="range"
+              min={0}
+              max={10}
+              step={1}
+              value={margin}
+              onChange={(e) => setMargin(+e.target.value)}
+              className="w-full"
+            />
           </div>
+
           <div>
             <p className="text-sm mb-1">Error Correction</p>
-            <select value={errorCorrectionLevel} onChange={(e) => setECL(e.target.value)} className="w-full p-2 border rounded-md text-sm">
+            <select
+              value={errorCorrectionLevel}
+              onChange={(e) => setECL(e.target.value)}
+              className="w-full p-2 border rounded-md text-sm"
+            >
               <option value="L">L (Low)</option>
               <option value="M">M (Medium)</option>
               <option value="Q">Q (Quartile)</option>
               <option value="H">H (High)</option>
             </select>
           </div>
+
           <div>
             <p className="text-sm mb-1">Format</p>
-            <select value={format} onChange={(e) => setFormat(e.target.value)} className="w-full p-2 border rounded-md text-sm">
+            <select
+              value={format}
+              onChange={(e) => setFormat(e.target.value)}
+              className="w-full p-2 border rounded-md text-sm"
+            >
               <option value="png">PNG</option>
               <option value="svg">SVG</option>
             </select>
@@ -107,22 +139,40 @@ const QrGenerator = () => {
         <div className="mt-4 flex gap-3">
           <div>
             <p className="text-sm mb-1">Foreground</p>
-            <input type="color" value={darkColor} onChange={(e) => setDarkColor(e.target.value)} className="w-full h-10 rounded-md border"/>
+            <input
+              type="color"
+              value={darkColor}
+              onChange={(e) => setDarkColor(e.target.value)}
+              className="w-full h-10 rounded-md border"
+            />
           </div>
+
           <div>
             <p className="text-sm mb-1">Background</p>
-            <input type="color" value={lightColor} onChange={(e) => setLightColor(e.target.value)} className="w-full h-10 rounded-md border"/>
+            <input
+              type="color"
+              value={lightColor}
+              onChange={(e) => setLightColor(e.target.value)}
+              className="w-full h-10 rounded-md border"
+            />
           </div>
         </div>
 
-        <button disabled={loading} className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#4C1D95] text-white px-4 py-2 mt-6 rounded-lg">
-          {loading ? <Loader2 className="w-4 h-4 animate-spin"/> : <QrCode className="w-5"/>}
+        <button
+          disabled={loading}
+          className="w-full flex justify-center items-center gap-2 bg-gradient-to-r from-[#7C3AED] to-[#4C1D95] text-white px-4 py-2 mt-6 rounded-lg"
+        >
+          {loading ? (
+            <Loader2 className="w-4 h-4 animate-spin" />
+          ) : (
+            <QrCode className="w-5" />
+          )}
           Generate QR
         </button>
       </form>
 
-      {/* Right preview */}
-      <div className="w-full max-w-lg p-4 bg-white rounded-lg border border-gray-200 flex flex-col min-h-[400px] max-h-[600px] overflow-y-auto flex-grow">
+      {/* Right Preview */}
+      <div className="lg:w-1/2 w-full p-4 bg-white rounded-lg border border-gray-200 min-h-[400px] flex flex-col">
         <div className="flex items-center gap-3">
           <QrCode className="w-5 h-5 text-[#7C3AED]" />
           <h1 className="text-xl font-semibold">QR Preview</h1>
@@ -130,18 +180,26 @@ const QrGenerator = () => {
 
         {!result ? (
           <div className="flex-1 flex flex-col justify-center items-center text-gray-400 mt-10">
-            <QrCode className="w-10 h-10 mb-3"/>
+            <QrCode className="w-10 h-10 mb-3" />
             <p>Enter text and click “Generate QR”</p>
           </div>
         ) : (
           <div className="flex flex-col flex-1 items-center mt-4">
             {result.format === "png" ? (
-              <img src={result.dataUrl} alt="QR" className="w-64 h-64 rounded-md"/>
+              <img src={result.dataUrl} alt="QR" className="w-64 h-64 rounded-md" />
             ) : (
-              <div dangerouslySetInnerHTML={{ __html: result.svg }} className="w-64 h-64"/>
+              <div
+                dangerouslySetInnerHTML={{ __html: result.svg }}
+                className="w-64 h-64"
+              />
             )}
-            <button onClick={downloadFile} className="mt-4 w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg">
-              <Download className="w-5 h-5"/> Download {result.format.toUpperCase()}
+
+            <button
+              onClick={downloadFile}
+              className="mt-4 w-full flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg"
+            >
+              <Download className="w-5 h-5" />
+              Download {result.format.toUpperCase()}
             </button>
           </div>
         )}
