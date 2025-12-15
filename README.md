@@ -1,11 +1,22 @@
 # 🚀 **ClaroAI — Unified AI Productivity & Automation Platform**
 
-*A cloud-native AI SaaS engineered for speed, scalability, and real-world productivity.*
+*A cloud-native AI SaaS platform built for students, creators, and professionals to work smarter — not harder.*
 
-ClaroAI is a full-stack AI platform that consolidates text intelligence, document understanding, video analysis, and image processing into a single modular interface.
-Built using a PERN-based architecture, the platform integrates multimodal AI models, robust cloud services, and scalable database workflows to deliver a seamless end-to-end experience.
+**ClaroAI** is a full-stack, production-ready AI SaaS that brings together writing, study, image processing, document intelligence, and career tools into **one centralized platform**.
+Instead of jumping between multiple AI websites, users get **everything under a single login with usage control and subscription support**.
 
-🔗 **Live Demo:** *https://claro-ai-app-wkvi.vercel.app*
+🔗 **Live Demo:** [https://claro-ai-app-wkvi.vercel.app](https://claro-ai-app-wkvi.vercel.app)
+
+---
+
+## 🆕 **What’s New & Working**
+
+✔ Fully functional **subscription system (Free & Premium)**
+✔ **Credit-based usage tracking** per user
+✔ Secure **plan-based feature access**
+✔ Premium-only AI tools enforced at backend
+✔ Real-time usage control via Clerk metadata
+✔ Scalable SaaS architecture ready for monetization
 
 ---
 
@@ -13,174 +24,201 @@ Built using a PERN-based architecture, the platform integrates multimodal AI mod
 
 ### 📝 **AI Writing & Content Intelligence**
 
-* Generate structured, human-readable articles
-* Produce optimized blog titles & keyword clusters
-* AI-powered caption generator (Bold, Sassy, Gen-Z, Classy styles)
-
-### 📄 **Document Understanding**
-
-* PDF Summarizer using contextual embedding + Gemini
-* PDF Chat (stateful QnA over extracted content)
-* Resume Analyzer with HR-grade insights
-
-### 🎥 **Video Intelligence**
-
-* YouTube Summarizer (transcript extraction + Gemini summary pipeline)
-* Video QnA with memory context
-
-### 🖼️ **Image Intelligence**
-
-* Text-to-Image (FLUX / ClipDrop)
-* Background Removal (AI segmentation API)
-* Object Removal (Cloudinary gen_remove)
-* OCR (Tesseract.js) for image → text
-* Compression & Resizing (Sharp + Cloudinary streams)
-
-### 🧠 **Study & Exam Tools**
-
-* Exam Question Generator
-
-  * Long/Short/MCQ
-  * Difficulty scaling (Easy/Medium/Hard)
-  * Topic-based generation pipeline
-
-### 🌍 **Social Layer**
-
-* Community feed displaying published AI images
-* Like system powered by array-based metadata in PostgreSQL
+* AI Article Writer (structured & human-readable)
+* Blog Title Generator
+* Keyword Generator
+* AI Caption Generator
+  *(Bold, Sassy, Gen-Z, Classy styles)*
 
 ---
 
-# 🛠 **Engineering Stack**
+### 📄 **Document Understanding**
+
+* **PDF Summarizer** (Gemini-powered)
+* **PDF Chat** (Ask questions from uploaded PDFs)
+* **Resume Reviewer** with HR-style analysis
+
+---
+
+### 🎥 **Video Intelligence**
+
+* **YouTube Summarizer**
+* Video-based QnA using transcript + context memory
+
+---
+
+### 🖼️ **Image Intelligence**
+
+* AI Text-to-Image Generation
+* Background Removal
+* Object Removal (AI-based)
+* OCR (Image → Text)
+* Image Compression & Resizing
+  *(format, quality & size control)*
+
+---
+
+### 🧠 **Study & Exam Tools**
+
+* **Exam Question Generator**
+
+  * Long / Short / MCQ
+  * Easy / Medium / Hard difficulty
+  * Topic-based generation
+
+---
+
+### 🌍 **Community Layer**
+
+* Publish AI-generated images
+* Community showcase feed
+* Like system backed by PostgreSQL metadata
+
+---
+
+## 💳 **Subscription & Access Control**
+
+ClaroAI is built as a **true SaaS platform**, not a demo project.
+
+### 🔐 Plan Logic
+
+* **Free Plan**
+
+  * Limited credits
+  * Basic AI tools
+* **Premium Plan**
+
+  * Unlimited / extended usage
+  * Advanced AI tools (Image Gen, PDF Chat, Resume Review, etc.)
+
+### ⚙ How it works
+
+* Authentication handled via **Clerk**
+* Plan & credit data stored in **Clerk private metadata**
+* Backend middleware enforces:
+
+  * Feature locking
+  * Usage limits
+  * Premium-only access
+
+---
+
+## 🛠 **Technology Stack**
 
 ### **Frontend**
 
-* **React.js** – component-driven UI
-* **TailwindCSS** – utility-first styling
-* **Lucide Icons** – crisp, minimal icon system
-* **Framer Motion** – interface animations
-* **React Router DOM** – client-side routing
-* **Axios** – HTTP client
+* React.js
+* Tailwind CSS
+* Framer Motion
+* Lucide Icons
+* Axios
+* React Router DOM
 
 ---
 
 ### **Backend**
 
-* **Node.js + Express.js** — service layer exposing AI micro-endpoints
-* Modular controllers for:
-
-  * Text generation
-  * Image generation
-  * PDF processing
-  * OCR
-  * YouTube pipeline
-  * Media utilities
+* Node.js
+* Express.js (REST APIs)
+* Modular controller-based architecture
 
 ---
 
 ### **Database**
 
-* **Neon PostgreSQL** (serverless)
+* **Neon PostgreSQL (Serverless)**
 
-  * Stores all creations: prompts, responses, images, summaries
-  * Includes publish states, like arrays, timestamps
-  * Scalable compute + branching for dev testing
+  * Stores users, prompts, responses, images
+  * Tracks history, likes, publish state
+  * Scalable & cloud-native
 
 ---
 
-### **Authentication & Access Control**
+### **Authentication**
 
 * **Clerk**
 
-  * User auth (email/OAuth)
-  * Tokenized API protection
-  * User metadata (plan: free/premium)
-  * Usage tracking + future billing-ready architecture
+  * Secure login (Email/OAuth)
+  * Session handling
+  * Subscription metadata
+  * Credit tracking
+  * Future billing-ready
 
 ---
 
-### **AI & Processing Pipelines**
+### **AI & Processing APIs**
 
-#### 🔹 **Google Gemini API**
+#### 🧠 Google Gemini 2.0 Flash
 
 Used for:
 
-* Article writing
-* PDF chat + summarization
+* Text generation
+* PDF summarization & chat
 * Resume analysis
+* Exam question generation
 * YouTube summarization
-* Caption generator
-* Exam question generator
-* Keyword intelligence
+* Caption & keyword generation
 
-#### 🔹 **ClipDrop API**
+#### 🖼️ ClipDrop API
 
 Used for:
 
 * Image generation
 * Background removal
-* Object removal (hybrid Cloudinary + ClipDrop pipeline)
 
-#### 🔹 **YouTube Data API v3**
-
-Used for:
-
-* Transcript retrieval
-* Metadata extraction
-* Context building for video QnA
-
-#### 🔹 **Cloudinary**
+#### ☁ Cloudinary
 
 Used for:
 
 * Image uploads
-* URL generation
+* Secure hosting
 * AI transformations
-* Hosting & optimization
-* Object removal via `gen_remove`
+* Object removal (`gen_remove`)
+* Optimized delivery
 
-#### 🔹 **Sharp**
+#### ⚙ Sharp
 
-Used for:
-
-* Compression
+* Image compression
 * Resizing
-* Format conversions
-* Stream processing
+* Format conversion
 
-#### 🔹 **Tesseract.js**
+#### 🔎 Tesseract.js
 
-Used for OCR:
-
-* Extracting text from images
-* Processing scanned documents
+* OCR (Image to text)
 
 ---
 
 ## 🔐 **Security & Architecture Highlights**
 
-* Route-level protection using **Clerk middleware**
-* Environment-key protected AI endpoints
-* Serverless PostgreSQL compute (Neon)
-* File handling via **Multer + fs** (auto cleanup)
-* Image pipelines using Cloudinary’s secure URLs
-* Stateless + scalable backend deployed on Vercel
+* Route-level protection using Clerk middleware
+* Environment-variable secured APIs
+* Premium checks enforced server-side
+* Auto-cleanup for uploaded files
+* Stateless, scalable backend design
 
 ---
 
-## 📦 **Deployment**
+## 🚀 **Deployment**
 
 * **Frontend:** Vercel
 * **Backend:** Render
-* **Database:** Neon Cloud
-* **Media:** Cloudinary
+* **Database:** Neon PostgreSQL
+* **Media Storage:** Cloudinary
 
 ---
 
 ## 📘 **Project Summary**
 
-ClaroAI is engineered as a production-ready AI platform, not just a single-tool demo.
-The architecture allows you to plug in new AI tools instantly, enabling this to scale into a full SaaS system with real subscription logic.
+ClaroAI is designed as a **real-world AI SaaS**, not just a college project.
+It demonstrates:
+
+* Practical AI integration
+* Subscription logic
+* Secure backend enforcement
+* Cloud scalability
+* Modular, extensible architecture
+
+The platform is ready to scale with **new AI tools, real billing, and enterprise features**.
 
 ---
 
