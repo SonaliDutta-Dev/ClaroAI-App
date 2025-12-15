@@ -61,7 +61,8 @@ aiRouter.post("/summarize-pdf",
   pdfSummarizer
 );
 
-aiRouter.post("/pdf-chat", requireAuth(), auth, pdfChat);
+aiRouter.post("/pdf-chat", auth, pdfChat);
+// aiRouter.post("/pdf-chat", requireAuth(), auth, pdfChat);
 
 aiRouter.post("/qr-generate", requireAuth(), auth, generateQr);
 
