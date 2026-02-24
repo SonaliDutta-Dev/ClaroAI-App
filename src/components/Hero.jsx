@@ -1,48 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 
 const Hero = () => {
   const navigate = useNavigate();
 
+  // animation by shifting intensity of the same purple gradient
+  const gradients = [
+    "from-[#7b61ff] to-[#b566ff]",      // normal
+    "from-[#8a6fff] to-[#c06fff]",      // slightly brighter
+    "from-[#6b57f5] to-[#a45cf0]",      // slightly deeper
+  ];
+
+  const [gIndex, setGIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGIndex((prev) => (prev + 1) % gradients.length);
+    }, 1800);
+    return () => clearInterval(interval);
+  }, []);
+
+  const scrollToTools = () => {
+    const el = document.getElementById("ai-tools");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-  <div
-  className="
-    relative w-full min-h-screen
-    flex flex-col justify-center items-center text-center
-    px-6 sm:px-14
-    bg-gradient-to-br from-[#eaeaff] via-[#eef1ff] to-[#eaf5ff]
-    overflow-hidden
-  "
->
+    <div
+      className="
+      relative w-full min-h-screen
+      flex flex-col justify-center items-center text-center
+      px-6 sm:px-14
+      bg-gradient-to-br from-[#eaeaff] via-[#eef1ff] to-[#eaf5ff]
+      overflow-hidden"
+    >
 
-      {/* Subtle pastel bluish top glow */}
-      <div
-        className="
-        absolute inset-0
-        bg-[radial-gradient(circle_at_20%_0%,rgba(150,130,255,0.35),transparent)]
-      "
-      ></div>
-
-      {/* Subtle aqua-purple bottom glow */}
-      <div
-        className="
-        absolute inset-0
-        bg-[radial-gradient(circle_at_80%_90%,rgba(120,200,255,0.25),transparent)]
-      "
-      ></div>
+      {/* Subtle glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(150,130,255,0.35),transparent)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_90%,rgba(120,200,255,0.25),transparent)]"></div>
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl">
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[#1A1A1A] leading-[1.2]">
           Unleash Creativity with{" "}
-          <span className="bg-gradient-to-r from-[#7b61ff] to-[#b566ff] bg-clip-text text-transparent">
+          <span
+            className={`bg-gradient-to-r ${gradients[gIndex]} bg-clip-text text-transparent transition-all duration-700`}
+          >
             ClaroAI
           </span>
         </h1>
 
         <p className="text-[#3f3f3f] text-sm sm:text-base mt-5 max-w-2xl mx-auto">
-          Your all-in-one AI creation suite to clarify ideas, connect creativity  
+          Your all-in-one AI creation suite to clarify ideas, connect creativity
           and create powerful content in seconds.
         </p>
 
@@ -65,6 +76,7 @@ const Hero = () => {
           </button>
 
           <button
+            onClick={scrollToTools}
             className="
               px-9 py-3 rounded-xl text-[#333] text-sm font-medium
               bg-white/80 border border-gray-200
@@ -76,13 +88,9 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* ⭐ TRUST BADGE — ADDED HERE */}
+        {/* Trust Badge */}
         <div className="flex justify-center items-center gap-3 mt-10 text-[#555] text-sm">
-          <img
-            src={assets.user_group}
-            alt="users"
-            className="h-8 opacity-90"
-          />
+          <img src={assets.user_group} alt="users" className="h-8 opacity-90" />
           Trusted by 10K+ creators
         </div>
       </div>

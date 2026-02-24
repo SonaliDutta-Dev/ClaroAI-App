@@ -16,9 +16,10 @@ const Navbar = () => {
     <div
       className={`
         fixed top-0 z-50 w-full h-20
-        flex items-center justify-between
-        px-4 sm:px-8 xl:px-32
+        flex items-center
+        px-4 sm:px-6 lg:px-6 xl:px-8   /* 👈 even less padding = logo more left */
         backdrop-blur-xl transition-all duration-300
+        justify-between
         ${
           isDashboard
             ? "bg-white/80 border-b border-gray-200 shadow-sm"
@@ -26,17 +27,21 @@ const Navbar = () => {
         }
       `}
     >
-      {/* LEFT: Logo */}
-      <div className="flex items-center flex-shrink-0">
-        <img
-          src={assets.logo}
-          alt="Logo"
-          className="h-[180px] sm:h-[180px] lg:h-[200px] cursor-pointer"
-          onClick={() => navigate("/")}
-        />
-      </div>
+      {/* Logo */}
+      <img
+        src={assets.logo}
+        alt="Logo"
+        className="
+          h-[180px] sm:h-[180px] lg:h-[200px] cursor-pointer
 
-      {/* RIGHT: Auth */}
+          /* mobile overflow fix */
+          max-sm:max-w-[120px]
+          max-sm:object-contain
+        "
+        onClick={() => navigate("/")}
+      />
+
+      {/* Right Auth Button */}
       {user ? (
         <UserButton appearance={{ elements: { avatarBox: "w-10 h-10" } }} />
       ) : (

@@ -4,6 +4,7 @@ import {
   LogOut, QrCode, Scissors, SquarePen,
   Users, Youtube, Camera
 } from 'lucide-react'
+import { MessageSquare } from 'lucide-react';
 
 import React from 'react'
 import { NavLink } from 'react-router-dom'
@@ -24,6 +25,10 @@ const navItems = [
   { to: '/ai/community', lable: 'Community', Icon: Users },
   { to: '/ai/exam-generator', lable: 'Exam Generator', Icon: FileText },
   { to: '/ai/image-caption', lable: 'Image Captioner', Icon: Camera },
+  { to: '/ai/interview-simulator', lable: 'Interview Simulator', Icon: MessageSquare },
+  { to: '/ai/ppt-generator', lable: 'PPT Generator', Icon: FileText },
+{ to: '/ai/resume-builder', lable: 'Resume Builder', Icon: FileText },
+
 ]
 
 const Sidebar = ({ sidebar, setSidebar }) => {

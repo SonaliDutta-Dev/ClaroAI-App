@@ -20,16 +20,16 @@ import YouTubeSummarizer from './pages/YouTubeSummarizer'
 import QrGenerator from './pages/QrGenerator'
 import ImageCompressor from './pages/ImageCompressor'
 import ExamGenerator from './pages/ExamGenerator'
-import PlanPage from './pages/PlanPage'
-
+import InterviewSimulator from "./pages/InterviewSimulator";
+import PPTGenerator from './pages/PPTGenerator'
+import ResumeBuilder from "./pages/ResumeBuilder";
 const App = () => {
 
   
   return (
     <div>
-      {/* <Toaster /> */}
+      <Toaster />
       <Routes>
-        <Route path="/plans" element={<PlanPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/ai" element={<Layout />} >
           <Route index element={<Dashboard />} />
@@ -48,8 +48,9 @@ const App = () => {
            <Route path="image-compressor" element={<ImageCompressor />} />
           <Route path="exam-generator" element={<ExamGenerator />} />
           <Route path="/ai/image-caption" element={<ImageCaptioner />} />
-
-
+<Route path="interview-simulator" element={<InterviewSimulator />} />
+ <Route path="ppt-generator" element={<PPTGenerator />} />
+<Route path="resume-builder" element={<ResumeBuilder />} />
          
         </Route>
       </Routes>
